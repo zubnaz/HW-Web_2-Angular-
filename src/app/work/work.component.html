@@ -1,0 +1,13 @@
+<h2>My To Do List</h2>
+<div>
+    <ul>
+        <li *ngFor="let w of works" (click)="didWork(w)">
+            <div *ngIf="w.did == false" class="notdid">{{w.work}}</div>
+            <div *ngIf="w.did == true" class="did"><span class="work">{{w.work}}</span>
+                <span class="date">{{w.didDate.getDay()}}-{{w.didDate.getMonth()}}-{{w.didDate.getFullYear()}}</span>
+            </div>
+        </li>
+    </ul>
+    <input [(ngModel)]="task" placeholder="Enter task">
+    <button (click)="PushTask()">Push Task</button>
+</div>

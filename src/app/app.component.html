@@ -1,11 +1,1 @@
-<h2>My To Do List</h2>
-<div>
-  <ul>
-    <li *ngFor="let w of works" (click)="doWork(w)">
-      <div *ngIf="w.do == false">{{w.work}}</div>
-      <div *ngIf="w.do == true" class="do">{{w.work}}</div>
-    </li>
-  </ul>
-  <input [(ngModel)]="task" placeholder="Enter task">
-  <button (click)="PushTask()">Push Task</button>
-</div>
+<app-work></app-work>
