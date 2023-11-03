@@ -3,12 +3,23 @@ div {
     padding: 0;
     width: 100%;
 
+    input.search {
+        width: 100%;
+        outline: none;
+        border: none;
+        border: 1px solid black;
+        padding: 10px;
+        font-size: 15px;
+
+    }
+
     ul {
         margin-bottom: 0px;
         padding: 0px;
 
         li {
             list-style-type: none;
+
 
             &:nth-child(odd) {
                 background-color: lightskyblue;
@@ -25,6 +36,8 @@ div {
                 padding-top: 10px;
                 padding-bottom: 10px;
 
+
+
                 &::before {
                     content: url(./Images/unchecked.png);
                     padding-right: 30px;
@@ -32,24 +45,44 @@ div {
 
 
 
-                &::after {
-                    color: red;
-                    content: '✖';
-                    padding-left: 30px;
+
+                span.priority {
+                    margin-left: 30px;
+                    color: black;
+
+                    span.priority1 {
+                        background-color: rgba(175, 26, 26, 0.678);
+                        padding: 5px;
+                    }
+
+                    span.priority2 {
+                        background-color: rgba(226, 212, 15, 0.692);
+                        padding: 5px;
+                    }
+
+                    span.priority3 {
+                        background-color: rgba(6, 172, 6, 0.5);
+                        padding: 5px;
+                    }
+                }
+
+                span.deadline {
+                    margin-left: 30px;
+                    padding: 5px;
+                    color: white;
+                    background-color: rgba(73, 66, 66, 0.767);
                 }
             }
 
             div.did {
-
                 color: black;
                 font-weight: 700;
                 background-color: gainsboro;
                 padding-left: 30px;
                 padding-top: 10px;
-                padding-bottom: 5px;
+                padding-bottom: 10px;
 
-                display: flex;
-                align-items: center;
+
 
                 &::before {
                     content: url(./Images/checked.png);
@@ -73,6 +106,27 @@ div {
 
 
             }
+
+            span.remove {
+                margin-left: 90%;
+                align-self: center;
+                margin-bottom: 5px;
+
+
+                button {
+
+                    border: none;
+                    outline: none;
+                    background-color: rgba(0, 191, 255, 0.479);
+                    padding: 5px;
+                    transition: all 1s;
+
+                    &:hover {
+                        background-color: deepskyblue;
+                    }
+                }
+            }
+
         }
 
     }
@@ -91,7 +145,7 @@ div {
         box-sizing: border-box;
     }
 
-    button {
+    >button {
         border: none;
         outline: none;
         width: 30%;

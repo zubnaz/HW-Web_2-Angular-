@@ -1,13 +1,32 @@
 <h2>My To Do List</h2>
+<app-add-tasks (getTask)="AddTask($event)"></app-add-tasks>
 <div>
     <ul>
-        <li *ngFor="let w of works" (click)="didWork(w)">
-            <div *ngIf="w.did == false" class="notdid">{{w.work}}</div>
-            <div *ngIf="w.did == true" class="did"><span class="work">{{w.work}}</span>
-                <span class="date">{{w.didDate.getDay()}}-{{w.didDate.getMonth()}}-{{w.didDate.getFullYear()}}</span>
+        <li *ngFor="let w of workShow" (click)="didWork(w)">
+            <div *ngIf="w.did == false" class="notdid">{{w.work}}
+                <span *ngIf="w.priority == 'Urgently'" class="priority">
+                    <span class="priority1">{{w.priority}}</span></span>
+
+                <span *ngIf="w.priority == 'There is still time'" class="priority"><span
+                        class="priority2">{{w.priority}}</span></span>
+                <span *ngIf="w.priority == 'For the future'" class="priority"><span
+                        class="priority3">{{w.priority}}</span></span>
+                <span class="deadline"><span>Days laft : {{w.deadline}}</span></span>
+                <span class="remove"><button (click)="Remove(w)">Remove</button></span>
             </div>
+            <div *ngIf="w.did == true && w.didDate != null" class="did"><span class="work">{{w.work}}</span>
+                <span class="date">{{w.didDate.getDay()}}-{{w.didDate.getMonth()}}-{{w.didDate.getFullYear()}}</span>
+                <span class="priority"></span>
+                <span class="remove"><button (click)="Remove(w)">Remove</button></span>
+            </div>
+
         </li>
     </ul>
-    <input [(ngModel)]="task" placeholder="Enter task">
-    <button (click)="PushTask()">Push Task</button>
+    <input class="search" [(ngModel)]="searchName" (keyup)="Change()" placeholder="Search by name">
+    <button (click)="SortByDays()">Sort by days</button>
+
 </div>
+<!--<div *ngIf="w.did == true" class="did"><span class="work">{{w.work}}</span>
+                <span class="date">{{w.didDate.getDay()}}-{{w.didDate.getMonth()}}-{{w.didDate.getFullYear()}}</span>
+                <span class="priority"></span>
+            </div>-->

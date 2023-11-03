@@ -1,5 +1,7 @@
 export interface Work {
-    work: string,
+    work?: string,
     did: boolean,
-    didDate: Date
+    didDate?: Date,
+    deadline?: number,
+    priority?: string
 }

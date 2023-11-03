@@ -1,0 +1,17 @@
+<form [formGroup]="taskGroup" (ngSubmit)="addTask()">
+    <h2>Create Task</h2>
+    <label for="taskName">Task</label>
+    <input id="taskName" type="text" formControlName="work">
+    <label for="deadline">Deadline</label>
+    <input id="deadline" type="number" formControlName="deadline">
+    <label for="priority">Priority</label>
+    <select id="priority" formControlName="priority">
+        <option>Urgently</option>
+        <option>There is still time</option>
+        <option>For the future</option>
+    </select>
+
+    <button type="submit">Add Task</button>
+    <button type="reset">Clear Inputs</button>
+</form>
+<hr>
